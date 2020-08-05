@@ -12,8 +12,8 @@ print(raw)
 raw.info
 
 #filter
-raw=raw.copy().filter(0.1, 40., fir_design='firwin')
 raw.notch_filter(np.arange(50,150,200), n_jobs=1, fir_design='firwin')
+raw=raw.copy().filter(0.1, 40., fir_design='firwin')
 
 #events
 events = mne.find_events(raw, stim_channel='STI101',shortest_event=1)
